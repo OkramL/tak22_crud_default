@@ -7,10 +7,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="create.php"><i class="fa-solid fa-square-plus text-success"></i> Create</a>
-                    <a class="nav-link" href="read.php"><i class="fa-brands fa-readme text-primary"></i> Read</a>
-                    <a class="nav-link" href="update.php"><i class="fa-solid fa-pen-to-square text-warning"></i> Update</a>
-                    <a class="nav-link" href="delete.php"><i class="fa-solid fa-square-minus text-danger"></i> Delete</a>                    
+                    <a class="nav-link" href="create"><i class="fa-solid fa-square-plus text-success"></i> Create</a>
+                    <a class="nav-link" href="read"><i class="fa-brands fa-readme text-primary"></i> Read</a>
+                    <a class="nav-link" href="update"><i class="fa-solid fa-pen-to-square text-warning"></i> Update</a>
+                    <a class="nav-link" href="delete"><i class="fa-solid fa-square-minus text-danger"></i> Delete</a>                    
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ Options -Indexes -MultiViews
 
 RewriteEngine On
 
-RewriteBase /PROJECT_FOLDER/
+RewriteBase /tak22_crud_default/
 
 # Kaust mis käitub teisiti. A folder that behaves differently
 #RewriteCond %{REQUEST_URI} "/font-free-5.0.13/"

@@ -1,3 +1,34 @@
+<?php 
+if(isset($_POST['submit'])) {
+    // $kl->show($_POST);
+    $name = $_POST['name']; # Normal way or google example
+    $birth = $kl->getVar('birth');
+    $salary = $kl->getVar('salary');
+    $height = $kl->getVar('height');
+    // Check name
+    if(strlen(trim($name)) == 0) {
+        $name = 'UNKNOWN';
+    }
+    // Check salary 
+    if(empty($salary)) {
+        $salary = "NULL";
+    }
+    if(empty($height)) {
+        $height = "NULL";
+    }
+    $sql = 'INSERT INTO simple 
+            (name, birth, salary, height, added)
+            VALUES ('.$kl->dbFix($name).', '.$kl->dbFix($birth).', '.($salary).', '.($height).', NOW())';
+    if($kl->dbQuery($sql)) {
+        // Alright
+        $success = true;
+        $_POST = array();
+    } else {
+        // Error
+        $success = false;        
+    }
+}
+?>
 <div class="container">
     <div class="row">
         <div class="col-sm-2"></div>
@@ -5,7 +36,18 @@
         <div class="col-sm-8">
             <h3 class="text-center">Create - Add new entry</h3>
             
-            <p class="text-success">MESSAGE</p>
+            <?php 
+            if(isset($success) and $success) {
+                ?>
+                <p class="text-success">The entry is inserted into the table</p>
+                <?php
+            } elseif(isset($success) and !$success) {
+                ?>
+                <p class="text-danger">An error occured while adding the record.</p>
+                <?php
+            }
+            ?>
+            
 
             <form action="create" method="post">
                 <div class="row mb-2">

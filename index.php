@@ -1,8 +1,13 @@
+<?php 
+require_once 'config/settings.php';
+require_once 'config/mysqli.php';
+// $kl->show($req);  // Show URL data TEST!!!
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <base href="" />
+    <base href="<?php echo 'https://'.$_SERVER['SERVER_NAME'].$script_folder; ?>" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +22,18 @@
     <?php
     # Temporary
     include 'menu.php';
-    include 'pagination.php';
-    include 'homepage.php';
+    
+    if(!empty($req[0]) and $req[0] != 'index') {
+        $file = $req[0] . '.php'; // get name from url and add .php
+        if(file_exists($file) and is_file($file)) {
+            require_once($file); // Read file contents
+        } else {
+            include '404.php';
+        }
+    } else {
+        include 'homepage.php';
+    }    
+    
     ?>
 </body>
 </html>
